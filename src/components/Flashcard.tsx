@@ -19,9 +19,9 @@ const Flashcard: React.FC<FlashcardProps> = ({ question, answer, onMark }) => {
   };
 
   return (
-    <div className="bg-white rounded-md shadow-md p-4">
-      <div className="text-lg font-semibold mb-4">{showAnswer ? answer : question}</div>
-      <div className="mt-4">
+    <div className="bg-white rounded-md shadow-md p-4 w-auto">
+      <div className="text-3xl font-semibold mb-4 text-center">{showAnswer ? answer : question}</div>
+      <div className="mt-4 flex justify-center items-center">
         <button onClick={toggleAnswer} className="mr-2 px-4 py-2 bg-blue-500 text-white rounded-md">
           {showAnswer ? 'Hide Answer' : 'Show Answer'}
         </button>

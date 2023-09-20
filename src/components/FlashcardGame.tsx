@@ -80,7 +80,8 @@ const FlashcardGame: React.FC = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex items-center justify-center rounded-lg">
       {currentCardIndex < flashcards.length && (
         <Flashcard
           question={flashcards[currentCardIndex].question}
@@ -91,17 +92,18 @@ const FlashcardGame: React.FC = () => {
       )}
       {currentCardIndex === flashcards.length && (
         <div>
-          <div className="text-lg font-semibold text-center">
+          <div className="text-xl font-semibold text-center">
             All cards completed!
           </div>
           <div className="text-center">
             Correct: {correctCount}, Incorrect: {incorrectCount}
           </div>
-          <button onClick={resetGame} className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md">
+          <button onClick={resetGame} className="mt-4 mx-auto px-4 py-2 bg-blue-500 text-white rounded-md block">
             Retry
           </button>
         </div>
       )}
+    </div>
     </div>
   );
 };
