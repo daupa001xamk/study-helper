@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Flashcard from "./Flashcard";
+import { Link } from 'react-router-dom';
 
 interface FlashcardType {
   question: string;
@@ -94,7 +95,7 @@ const FlashcardGame: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
       <div className="flex items-center justify-center rounded-lg w-1/2 ">
         {currentCardIndex < flashcards.length && (
           <Flashcard
@@ -121,6 +122,9 @@ const FlashcardGame: React.FC = () => {
           </div>
         )}
       </div>
+        <Link to="/" className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md">
+        Back to Mainpage
+      </Link>
     </div>
   );
 };
