@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import Flashcard from './Flashcard';
+import React, { useState, useEffect } from "react";
+import Flashcard from "./Flashcard";
 
 interface FlashcardType {
   question: string;
@@ -8,12 +8,24 @@ interface FlashcardType {
 }
 
 const initialFlashcards: FlashcardType[] = [
-  { question: 'What is 2 + 2?', answer: '4', isCorrect: false },
-  { question: 'What is the capital of France?', answer: 'Paris', isCorrect: false },
-  { question: 'What is 2 + 5?', answer: '7', isCorrect: false },
-  { question: 'What is the capital of Finland?', answer: 'Helsinki', isCorrect: false },
-  { question: 'What is 2 + 6?', answer: '8', isCorrect: false },
-  { question: 'What is the capital of Sweden?', answer: 'Stockholm', isCorrect: false },
+  { question: "What is 2 + 2?", answer: "4", isCorrect: false },
+  {
+    question: "What is the capital of France?",
+    answer: "Paris",
+    isCorrect: false,
+  },
+  { question: "What is 2 + 5?", answer: "7", isCorrect: false },
+  {
+    question: "What is the capital of Finland?",
+    answer: "Helsinki",
+    isCorrect: false,
+  },
+  { question: "What is 2 + 6?", answer: "8", isCorrect: false },
+  {
+    question: "What is the capital of Sweden?",
+    answer: "Stockholm",
+    isCorrect: false,
+  },
   // Add more flashcards here
 ];
 
@@ -34,7 +46,7 @@ const FlashcardGame: React.FC = () => {
 
   useEffect(() => {
     if (flashcards.every((card) => card.isCorrect)) {
-      console.log('All cards completed!');
+      console.log("All cards completed!");
     }
   }, [flashcards]);
 
@@ -61,7 +73,9 @@ const FlashcardGame: React.FC = () => {
     if (!allCorrect) {
       let nextIndex;
       do {
-        nextIndex = flashcards.findIndex((card, index) => index > currentCardIndex && !card.isCorrect);
+        nextIndex = flashcards.findIndex(
+          (card, index) => index > currentCardIndex && !card.isCorrect
+        );
       } while (flashcards[nextIndex]?.isCorrect);
 
       if (nextIndex !== -1) {
@@ -81,29 +95,32 @@ const FlashcardGame: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-    <div className="flex items-center justify-center rounded-lg">
-      {currentCardIndex < flashcards.length && (
-        <Flashcard
-          question={flashcards[currentCardIndex].question}
-          answer={flashcards[currentCardIndex].answer}
-          isCorrect={flashcards[currentCardIndex].isCorrect}
-          onMark={handleMark}
-        />
-      )}
-      {currentCardIndex === flashcards.length && (
-        <div>
-          <div className="text-xl font-semibold text-center">
-            All cards completed!
+      <div className="flex items-center justify-center rounded-lg w-1/2 ">
+        {currentCardIndex < flashcards.length && (
+          <Flashcard
+            question={flashcards[currentCardIndex].question}
+            answer={flashcards[currentCardIndex].answer}
+            isCorrect={flashcards[currentCardIndex].isCorrect}
+            onMark={handleMark}
+          />
+        )}
+        {currentCardIndex === flashcards.length && (
+          <div className="bg-white rounded-md shadow-md w-full h-64">
+            <div className="text-4xl font-semibold text-center mt-12">
+              All cards completed!
+            </div>
+            <div className="text-center text-2xl">
+              Correct: {correctCount}, Incorrect: {incorrectCount}
+            </div>
+            <button
+              onClick={resetGame}
+              className=" mt-4 mx-auto px-4 py-2 bg-blue-500 text-white rounded-md block text-4xl"
+            >
+              Retry
+            </button>
           </div>
-          <div className="text-center">
-            Correct: {correctCount}, Incorrect: {incorrectCount}
-          </div>
-          <button onClick={resetGame} className="mt-4 mx-auto px-4 py-2 bg-blue-500 text-white rounded-md block">
-            Retry
-          </button>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
     </div>
   );
 };
