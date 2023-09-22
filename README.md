@@ -8,13 +8,20 @@ Questions can be added by prisma / localhost the web application with npm or pnp
 ## node packages
  - Vite
  - Tailwind
+ - react-router-dom
+ 
+## server node packages
+ - Prisma
+ - Express
 
 ## ToDo
-- [x] barebone
-- [ ] Menu for selecting study "mode" 
-- [ ] questions to own .json
+- [x] barebone (flashcards)
+- [x] Menu for selecting study "mode" 
 - [ ] server + DB for questions
-- [ ] add questions
+- [ ] feature add questions
+- [ ] /collections to see all study sets
+- [ ] feature to have users
+- [ ] connect meaning game
 - [ ] css
 
 ## Commands
