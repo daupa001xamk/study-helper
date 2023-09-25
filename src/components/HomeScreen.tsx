@@ -17,7 +17,7 @@ const HomeScreen: React.FC = () => {
             </Link>
           </li>
           <li>
-            <Link to="/mode3" className="text-blue-600 hover:underline hover:text-blue-800">
+            <Link to="/collections" className="text-blue-600 hover:underline hover:text-blue-800">
               Collections
             </Link>
           </li>
